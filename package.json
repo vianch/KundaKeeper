@@ -12,7 +12,7 @@
     "test": "jest --coverage",
     "dev": "webpack -w --mode development",
     "build": "webpack --mode production",
-    "server": "smooth-server -c server-config.json"
+    "server": "node server/index.js"
   },
   "dependencies": {
     "axios": "^0.18.0",

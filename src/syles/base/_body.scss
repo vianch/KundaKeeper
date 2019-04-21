@@ -1,0 +1,14 @@
+body {
+  font-family: $font-roboto;
+  font-size: 16px;
+  background: $primary-color-grey-light;
+
+  a {
+    cursor: pointer;
+  }
+
+  & > div {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "es2015", // No module system, concatenated file
+    "jsx": "react", // Set React as the JSX factory
+    "moduleResolution": "node", // Resolve modules using Node-resolution algorithm
+    "target": "es5", // Target ES6 for more modern browsers
+    "lib": ["es2015", "dom", "dom.iterable"], // Include typings from built-in lib declarations
+    "sourceMap": true, // Include module source maps for debugging
+    "outDir": "./dist/", // Output to single concatenated file
+    "removeComments": true, /* Do not emit comments to output. */
+    "noImplicitAny": true, /* Raise error on expressions and declarations with an implied 'any' type. */
+    "allowSyntheticDefaultImports": true, /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
+    "esModuleInterop": true, /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+    "preserveConstEnums": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/typings/index.d.ts"
+    ]
+  },
+  "include": [
+    "src",
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

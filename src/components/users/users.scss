@@ -1,34 +1,9 @@
 @import "../../styles/shared/theme";
 @import "../../styles/shared/mixins";
 
-$margin-bottom: 20px;
-
 .usersComponent {
-  height: 100%;
-  position: absolute;
+  height: 100vh;
   background: $primary-color-grey;
-}
-
-.avatar {
-  margin-right: 10px;
-
-  &.avatarContainerSmall {
-    overflow: hidden;
-    background: $primary-color-light;
-    @include circle(40px);
-  }
-
-  &.avatarContainerBig {
-    overflow: hidden;
-    background: $primary-color-light;
-    @include circle(55px);
-  }
-
-  .userAvatar {
-    width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-  }
 }
 
 .settings {
@@ -36,28 +11,27 @@ $margin-bottom: 20px;
   cursor: pointer;
 }
 
-.userTitle {
-  height: 59px;
-  display: flex;
-  background: $primary-color-mid;
-  margin-bottom: $margin-bottom;
-  align-items: center;
-  border-bottom: 1px solid $color-grey-dark;
-  padding: 0 15px;
+.userListTitle {
   justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .userList {
   display: flex;
   flex-flow: column nowrap;
-  padding: 0 15px;
 }
 
 .user {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  margin-bottom: $margin-bottom;
+  padding: 15px;
+  cursor: pointer;
+
+  &.userActive {
+    background: $primary-color-mid;
+    .userName { color: $primary-color-grey; }
+  }
 
   &:last-child {
     margin-bottom: 0;

@@ -1,0 +1,11 @@
+@import "../shared/mixins";
+@import "../shared/theme";
+
+.boxCard {
+  height: 59px;
+  display: flex;
+  background: $primary-color-mid;
+  align-items: center;
+  padding: 0 15px;
+  border-bottom: 1px solid $color-grey-dark;
+}

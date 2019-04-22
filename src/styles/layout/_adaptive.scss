@@ -1,3 +1,5 @@
+@value breakpoint-extra-tiny: (max-width: 280px);
+@value breakpoint-tiny: (max-width: 420px);
 @value breakpoint-extra-small: (max-width: 639px);
 @value breakpoint-small: (min-width: 640px) and (max-width: 991px);
 @value breakpoint-small-and-down: (max-width: 991px);
@@ -11,7 +13,13 @@
 @value breakpoint-extra-large: (min-width: 1900px);
 
 @mixin breakpoint($media) {
-  @if $media == breakpoint-extra-small {
+  @if $media == breakpoint-extra-tiny {
+    @media only screen and (max-width: 280px) { @content; }
+  }
+  @else if $media == breakpoint-tiny {
+    @media only screen and (max-width: 420px) { @content; }
+  }
+  @else if $media == breakpoint-extra-small {
     @media only screen and (max-width: 639px) { @content; }
   }
   @else if $media == breakpoint-small {

@@ -1,34 +1,44 @@
 import React, { ReactElement } from "react";
 
+import avatarStyles from "../../styles/components/avatar.scss";
+import componentStyles from "../../styles/components/box-card.scss";
 import responsiveStyles from "../../styles/layout/_responsive.scss";
 import styles from "./users.scss";
 
-const UserComponent = (): ReactElement => (
+const UsersComponent = (): ReactElement => (
   <div className={`${responsiveStyles["column-3"]} ${styles.usersComponent}`}>
-    <div className={styles.userTitle}>
-      <div className={`${styles.avatar} ${styles.avatarContainerSmall}`}>
+    <div className={`${componentStyles.boxCard} ${styles.userListTitle}`}>
+      <figure
+        className={`${avatarStyles.avatar} ${
+          avatarStyles.avatarContainerSmall
+        }`}
+      >
         <img
           src="https://images.pexels.com/photos/247885/pexels-photo-247885.jpeg?h=350&auto=compress&cs=tinysrgb"
           alt="avatar"
-          className={styles.userAvatar}
+          className={avatarStyles.userAvatar}
         />
-      </div>
+      </figure>
 
       <i className={`${styles.settings} material-icons`}>settings</i>
     </div>
 
     <ul className={styles.userList}>
-      <li className={styles.user}>
-        <div className={`${styles.avatar} ${styles.avatarContainerBig}`}>
+      <li className={`${styles.user} ${styles.userActive}`}>
+        <figure
+          className={`${avatarStyles.avatar} ${
+            avatarStyles.avatarContainerBig
+          }`}
+        >
           <img
             src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?h=350&auto=compress&cs=tinysrgb"
             alt="avatar"
-            className={styles.userAvatar}
+            className={avatarStyles.userAvatar}
           />
-        </div>
+        </figure>
 
         <div className={styles.userInformation}>
-          <div className={styles.userName}>Chat Bot</div>
+          <div className={styles.userName}>Minka pay</div>
           <div className={`${styles.userStatus} ${styles.online}`}>
             <i className={styles.dot}> </i> online
           </div>
@@ -36,15 +46,19 @@ const UserComponent = (): ReactElement => (
       </li>
 
       <li className={styles.user}>
-        <div className={`${styles.avatar} ${styles.avatarContainerBig}`}>
+        <figure
+          className={`${avatarStyles.avatar} ${
+            avatarStyles.avatarContainerBig
+          }`}
+        >
           <img
             src="https://randomuser.me/api/portraits/men/32.jpg"
-            className={styles.userAvatar}
+            className={avatarStyles.userAvatar}
           />
-        </div>
+        </figure>
 
         <div className={styles.userInformation}>
-          <div className={styles.userName}>Victor Bot</div>
+          <div className={styles.userName}>Minka Support</div>
           <div className={`${styles.userStatus} ${styles.offline}`}>
             <i className={styles.dot}> </i> offline
           </div>
@@ -54,4 +68,4 @@ const UserComponent = (): ReactElement => (
   </div>
 );
 
-export { UserComponent };
+export { UsersComponent };

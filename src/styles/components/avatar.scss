@@ -1,0 +1,29 @@
+@import "../layout/adaptive";
+@import "../shared/mixins";
+@import "../shared/theme";
+
+.avatar {
+  margin-right: 10px;
+
+  &.avatarContainerSmall {
+    overflow: hidden;
+    background: $primary-color-light;
+    @include circle(40px);
+  }
+
+  &.avatarContainerBig {
+    overflow: hidden;
+    background: $primary-color-light;
+    @include circle(55px);
+
+    @include breakpoint(breakpoint-extra-tiny) {
+      display: none;
+    }
+  }
+
+  .userAvatar {
+    width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+  }
+}

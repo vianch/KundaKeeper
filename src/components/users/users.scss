@@ -1,9 +1,32 @@
+@import "../../styles/layout/adaptive";
 @import "../../styles/shared/theme";
 @import "../../styles/shared/mixins";
 
 .usersComponent {
   height: 100vh;
   background: $primary-color-grey;
+  overflow-y: auto;
+
+  @include breakpoint(breakpoint-extra-small) {
+    max-height: 229px;
+
+    &::-webkit-scrollbar-track
+    {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background-color: $primary-color-light;
+    }
+
+    &::-webkit-scrollbar
+    {
+      width: 6px;
+      background-color: $primary-color-light;
+    }
+
+    &::-webkit-scrollbar-thumb
+    {
+      background-color: $color-gray;
+    }
+  }
 }
 
 .settings {

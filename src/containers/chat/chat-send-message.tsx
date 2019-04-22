@@ -22,7 +22,7 @@ const ChatSendMessagesComponent = (): ReactElement => {
   return (
     <footer className={`${styles.footerBoxCard} ${componentStyles.boxCard}`}>
       <figure
-        className={`${avatarStyles.avatar} ${
+        className={`${styles.avatarFooter} ${avatarStyles.avatar} ${
           avatarStyles.avatarContainerSmall
         }`}
       >

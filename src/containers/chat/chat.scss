@@ -1,3 +1,4 @@
+@import "../../styles/layout/adaptive";
 @import "../../styles/shared/theme";
 @import "../../styles/shared/mixins";
 
@@ -5,6 +6,10 @@
   height: 100vh;
   display: flex;
   flex-flow: column nowrap;
+
+  @include breakpoint(breakpoint-extra-small) {
+    height: auto;
+  }
 }
 
 .ChatBoxCard {
@@ -15,6 +20,14 @@
 .footerBoxCard {
   border-left: 1px solid $color-grey-dark;
   justify-content: space-between;
+}
+
+.avatarFooter {
+  display: inherit;
+
+  @include breakpoint(breakpoint-extra-tiny) {
+    display: none;
+  }
 }
 
 .userName {
@@ -29,6 +42,10 @@
   justify-content: space-between;
   position: relative;
   overflow: hidden;
+
+  @include breakpoint(breakpoint-extra-small) {
+    height: calc(100vh - 349px);
+  }
 }
 
 .messagesList {

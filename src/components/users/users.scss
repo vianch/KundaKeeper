@@ -1,0 +1,96 @@
+@import "../../styles/shared/theme";
+@import "../../styles/shared/mixins";
+
+$margin-bottom: 20px;
+
+.usersComponent {
+  height: 100%;
+  position: absolute;
+  background: $primary-color-grey;
+}
+
+.avatar {
+  margin-right: 10px;
+
+  &.avatarContainerSmall {
+    overflow: hidden;
+    background: $primary-color-light;
+    @include circle(40px);
+  }
+
+  &.avatarContainerBig {
+    overflow: hidden;
+    background: $primary-color-light;
+    @include circle(55px);
+  }
+
+  .userAvatar {
+    width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+  }
+}
+
+.settings {
+  color: $color-gray;
+  cursor: pointer;
+}
+
+.userTitle {
+  height: 59px;
+  display: flex;
+  background: $primary-color-mid;
+  margin-bottom: $margin-bottom;
+  align-items: center;
+  border-bottom: 1px solid $color-grey-dark;
+  padding: 0 15px;
+  justify-content: space-between;
+}
+
+.userList {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 0 15px;
+}
+
+.user {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-bottom: $margin-bottom;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.userInformation {
+  display: flex;
+  flex-flow: column nowrap;
+  @include font-size(14px);
+
+  .userName {
+    color: $color-white;
+    margin-bottom: 5px;
+  }
+
+  .userStatus {
+    font-weight: bold;
+
+    &.online {
+      color: $color-green;
+      .dot {  background: $color-green; }
+    }
+
+    &.offline {
+      color: $color-gray;
+      .dot {  background: $color-red; }
+    }
+
+    .dot {
+      @include circle(8px);
+      display: inline-block;
+    }
+  }
+
+}

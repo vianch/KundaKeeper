@@ -107,7 +107,7 @@ module.exports = {
     new TSLintPlugin({
       files: ["./src/**/*.ts", "./src/**/*.tsx"],
     }),
-    new CleanWebpackPlugin("dist", {}),
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "css/style.[contenthash].css",
     }),

@@ -1,6 +1,10 @@
-interface ReduxState<T> {
+interface ReduxState {
   type: string;
-  data?: T;
+  users?: Users[];
+}
+
+interface ReduxChatState extends Messages {
+  type: string;
 }
 
 interface DataStates<T> {

@@ -3,18 +3,23 @@
 @import "../../styles/shared/mixins";
 
 .walletContainer{
-  background: $primary-color-grey;
   width: 100%;
-  height: 100vh;
+
   position: absolute;
 
   .walletListContainer {
     display: flex;
     flex-flow: column nowrap;
+    background: $primary-color-mid;
+    height: 100vh;
+  }
+
+  .walletList {
     padding: 0 15px;
   }
 }
 
 .menuContainer {
-
+  background: $primary-color-grey;
+  height: 100vh;
 }

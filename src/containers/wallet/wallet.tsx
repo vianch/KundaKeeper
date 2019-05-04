@@ -17,37 +17,28 @@ const WalletContainer = () => {
         <div
           className={`${styles.menuContainer} ${responsiveStyles["column-3"]}`}
         >
-          asd
+          MENY
         </div>
+
         <div
           className={`${responsiveStyles["column-9"]} ${
             styles.walletListContainer
           }`}
         >
-          <div className={`${boxCardStyles.card} ${boxCardStyles.cardGreen}`}>
-            sda
-          </div>
+          <div className={styles.walletList}>
+            <div className={`${boxCardStyles.card} ${boxCardStyles.cardBlue}`}>
+              <div className="image-logo" />
+              <div className="criptocurrency-information">
+                <h1>BitCoin</h1>
+              </div>
+              <div className="crito-currency-amount">
+                <span>$0</span>
+              </div>
+            </div>
 
-          <div className={`${boxCardStyles.card} ${boxCardStyles.cardOrange}`}>
-            sda
-          </div>
-
-          <div className={`${boxCardStyles.card} ${boxCardStyles.cardBlue}`}>
-            sda
-          </div>
-
-          <div className={`${boxCardStyles.card} ${boxCardStyles.cardPink}`}>
-            sda
-          </div>
-
-          <div
-            className={`${boxCardStyles.card} ${boxCardStyles.cardDarkBlue}`}
-          >
-            sda
-          </div>
-
-          <div className={`${boxCardStyles.card} ${boxCardStyles.cardRed}`}>
-            sda
+            <div className={`${boxCardStyles.card} ${boxCardStyles.cardPink}`}>
+              sda
+            </div>
           </div>
         </div>
       </div>

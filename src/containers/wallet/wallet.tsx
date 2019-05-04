@@ -17,7 +17,7 @@ const WalletContainer = () => {
         <div
           className={`${styles.menuContainer} ${responsiveStyles["column-3"]}`}
         >
-          MENY
+          <Link to="/Chat">Chat</Link>
         </div>
 
         <div
@@ -26,11 +26,22 @@ const WalletContainer = () => {
           }`}
         >
           <div className={styles.walletList}>
-            <div className={`${boxCardStyles.card} ${boxCardStyles.cardBlue}`}>
-              <div className="image-logo" />
+            <div
+              className={`${boxCardStyles.card} ${boxCardStyles.cardBlue} ${
+                styles.walletItem
+              }`}
+            >
+              <div className={styles.currencyLogoContainer}>
+                <img
+                  className={styles.currencyImage}
+                  src="https://firebasestorage.googleapis.com/v0/b/vianch-web.appspot.com/o/bitcoin.png?alt=media&token=4e19a03f-0a11-4eb8-a276-74a7d1a33800"
+                />
+              </div>
+
               <div className="criptocurrency-information">
                 <h1>BitCoin</h1>
               </div>
+
               <div className="crito-currency-amount">
                 <span>$0</span>
               </div>
@@ -61,6 +72,7 @@ function mapStateToProps(state: {
     currencyList: state.currencyListReducer,
   };
 }
+
 export default connect<{}, {}, WalletProps>(
   mapStateToProps,
   mapDispatchToProps,

@@ -17,6 +17,20 @@
   .walletList {
     padding: 0 15px;
   }
+
+  .walletItem {
+
+  }
+
+  .currencyLogoContainer {
+    width: 75px;
+    height: 75px;
+    display: block;
+
+    .currencyImage {
+      width: 75px;
+    }
+  }
 }
 
 .menuContainer {

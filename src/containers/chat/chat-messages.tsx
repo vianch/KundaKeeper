@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import React, { ReactElement } from "react";
 
 import avatarStyles from "../../styles/components/avatar.scss";
+import { userTypes } from "./actions/chat.types";
 import styles from "./chat.scss";
 
 const ChatMessagesComponent = ({
@@ -11,34 +12,45 @@ const ChatMessagesComponent = ({
 }): ReactElement => (
   <div className={styles.messagesContainer}>
     <div className={styles.messagesList}>
-      {messages.map((message: Messages) => (
-        <div
-          key={`${message.id}`}
-          className={`${styles.message} ${styles.userMessage}`}
-        >
-          <span>{message.message}</span>
+      {messages.map((message: Messages) => {
+        if (message.user === userTypes.BOT) {
+          return (
+            <div
+              key={`${message.id}`}
+              className={`${styles.message} ${styles.responseMessage}`}
+            >
+              <figure
+                className={`${styles.avatarPosition} ${avatarStyles.avatar} ${
+                  avatarStyles.avatarContainerSmall
+                }`}
+              >
+                <img
+                  src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?h=350&auto=compress&cs=tinysrgb"
+                  alt="avatar"
+                  className={avatarStyles.userAvatar}
+                />
+              </figure>
 
-          <div className={styles.timeStamp}>{message.date.toDateString()}</div>
-        </div>
-      ))}
-
-      <div className={`${styles.message} ${styles.responseMessage}`}>
-        <figure
-          className={`${styles.avatarPosition} ${avatarStyles.avatar} ${
-            avatarStyles.avatarContainerSmall
-          }`}
-        >
-          <img
-            src="https://images.pexels.com/photos/247885/pexels-photo-247885.jpeg?h=350&auto=compress&cs=tinysrgb"
-            alt="avatar"
-            className={avatarStyles.userAvatar}
-          />
-        </figure>
-
-        <span>Response from bot...</span>
-
-        <div className={styles.timeStamp}>10:10 AM, Today</div>
-      </div>
+              <span>{message.message}</span>
+              <div className={styles.timeStamp}>
+                {message.date.toDateString()}
+              </div>
+            </div>
+          );
+        } else {
+          return (
+            <div
+              key={`${message.id}`}
+              className={`${styles.message} ${styles.userMessage}`}
+            >
+              <span>{message.message}</span>
+              <div className={styles.timeStamp}>
+                {message.date.toDateString()}
+              </div>
+            </div>
+          );
+        }
+      })}
     </div>
   </div>
 );

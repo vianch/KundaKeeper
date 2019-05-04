@@ -4,4 +4,9 @@ const chatActionTypes = {
   USER_LIST: "USER_LIST",
 };
 
-export { chatActionTypes };
+const userTypes = {
+  BOT: "BOT",
+  ME: "ME",
+};
+
+export { chatActionTypes, userTypes };

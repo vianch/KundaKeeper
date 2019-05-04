@@ -12,10 +12,29 @@
     flex-flow: column nowrap;
     background: $primary-color-mid;
     height: 100vh;
+    padding: 15px;
+  }
+
+  .walletAdvice {
+    $margin-bottom: 20px;
+
+    padding: 15px 25px;
+    background: $color-white;
+    margin: 25px 0px;
+    min-height: 125px;
+
+    h2 {
+      @include font-size(28px);
+      margin-bottom: $margin-bottom;
+    }
+
+    p {
+      @include font-size(18px);
+      margin-bottom: $margin-bottom;
+    };
   }
 
   .walletList {
-    padding: 0 15px;
   }
 
   .walletItem {
@@ -30,6 +49,33 @@
     .currencyImage {
       width: 75px;
     }
+  }
+
+  .currencyInformation,
+  .currencyAmount {
+    display: flex;
+    flex-flow: column nowrap;
+
+    h1, p, span {
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      @include font-size(30px)
+    }
+
+    p{
+      @include font-size(24px);
+    }
+
+    span{
+      @include font-size(28px);
+    }
+  }
+
+  .currencyAmount {
+    margin-right: 20px;
+    text-align: right;
   }
 }
 

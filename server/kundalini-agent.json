@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "kundalini-agent",
+  "private_key_id": "5af8e1c8ca27e26f31d020fad34702273f850091",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCnEmq/9pjk0iMu\nPC6FzQ7QhxZRbP8opvWVRlfLxMTHhW4w3KlDjuKEu5wzs95LateUFAcF2nMrgXeG\nBHOjSbuSPDrK7fMq1dKTV2sauC28uGuUteyQS2IS391YUR/6msVyP0k4+vpDS749\nt1LMosp4ZmI6x096yJRvsp3l44dveF27raOSSkDCnU3t5sN2ILKrrIBzwiYIfFAW\nCR0rAI1lle7wJ9Cjsy0jIsW/GvVkH5MnoSVjz9/leCbT7FS3M+VyueLz9X6RiXTH\nQnJI0ku9GaQOTxRuNn8kBggr552QXbyvLAYVFBk/T/yX9M5FyPr4g8swNgpbHj3C\nPv6B7MW9AgMBAAECggEAKAknCRjGE0FS+mOkD16v/+L7Q2hv7bUysQKSC+u7bweH\nvBBIxH5zRDT0DcS6zo5MGjlBZJLwWdrUwkoDTvwehYDG4vWp+ZgTNckzSowbs7dq\n2lBNH9fcqOK59027cNGRYpsNSCkGe0VlkYMChbS1+aupOuYjouv5fBnMsjf3rsuB\nSc2UX8g0ZXwumV3VSs9GR83CbWSvsdBpVyqlSgcDnTP2uOYviQ+RHmznNpm8ZOUd\nc9HeA9COhw23tQ7o2wTApc0SRVoRuxVRfznPfjKtxLcczV/2En3zTgjGp+bBdzJK\nVWlr5BuO91aKbg6kIh2EsgVUWESrqT1wHXDh3LgHgQKBgQDY4TqpZH+HnGlr1inv\n+RucOqlegayDA2uT9fQcSnVMyNNwYM/e4Fsu/qEZ4qD8ET81qNcFv317NYdB7xjf\n9DjRNbKjeXwsR+AhHjBYAUUzx5WZOUTjW5cPTmNMVuBo3HOCAuTDT24VPKM+zxiV\nWHq9Y4ikWV7h3h/eX55s/fllgQKBgQDFNTr+TA2T/ACwa1hzjDP2lZcwYrq2rKoW\nEVrAToyN3MSEUxKkgWa3s/DkvR5eGe76MBJkTlifbv2Tckx6jb2YA2CAd4Whmt39\nQuqvClv1nnrHcu7nrugHEtb8pj4B23gANwnxyxThWkE5nK8VFNc7QzUrH+7ZM97m\n9gPY+waWPQKBgCOVqOtcOvSEPGPeKtld9SLIGTwRaL3CVOddBqWRrfdgSBj7OYAn\nLa7jRomZvrI9HjLutgESb0NFACFYWqt8RcpF1j6uUypszKCCdIosAy/AwpH2bJAl\nWf6/7Nj8tCtgaG9fjCtjn/tKDLrkffMbJmBmsWfN5hyHNpFk/PiDH2WBAoGBAJBc\nqiXTuLDW7g43VpWnUba1xOpnq7Tj6tKiu6NBHQUQUk9nnKMOEwpxT+uyQZOzOkyt\nehkxfRChKEGSj0e7kMnB1xfT5t/pRY4LOU8Pr0e7TrfIe/jgAfyDnxtt+sBTT6Ig\nqEf3WP6qmkq5VzWAfxpj1X0PMEKSBR9fgmuJP0YlAoGAXm/2qZWHyzCwhzeKGOxp\nhokDjUV6WujRZLvesHR3rb3Y8QqsyvyI+WhufJ5hqXrocBzDjhWciXHtuvaEQ1Kh\nYyNbpk34SlPlt+aziGUBL3lXDHLoeOgtAk1aWMeoeooHqCg5qdmJfJv1BUiJVOdI\nBx4KWhyZhAaAJEXLOmT2Dto=\n-----END PRIVATE KEY-----\n",
+  "client_email": "kundalini-agent@kundalini-agent.iam.gserviceaccount.com",
+  "client_id": "100376292031714942266",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/kundalini-agent%40kundalini-agent.iam.gserviceaccount.com"
+}

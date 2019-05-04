@@ -1,23 +1,50 @@
 "use strict";
 /* eslint no-console: 0 */
 /* eslint no-undef: 0 */
-// https://devhints.io/fastify
+
 require("colors");
-const fastify = require("fastify")();
-const staticHandler = require("fastify-static");
-const path = require("path");
+const express = require("express");
+const http = require("http");
+const socketIO = require("socket.io");
+const dialogflow = require("dialogflow");
+const uuid = require("uuid");
+const app = express();
 const port = 3033;
 
-// Declare a route
-fastify.register(staticHandler, {
-  root: path.join(__dirname, "../dist"),
-  prefix: "/", // optional: default "/"
+// our server instance
+const server = http.createServer(app);
+const io = socketIO(server);
+
+app.use(express.static("dist"));
+
+io.sockets.on("connection", socket => {
+  const languageCode = "es";
+  const sessionClient = new dialogflow.SessionsClient();
+
+  socket.on("chat_message", message => {
+    const sessionId = uuid.v4();
+    const sessionPath = sessionClient.sessionPath("kundalini-agent", sessionId);
+
+    const request = {
+      session: sessionPath,
+      queryInput: {
+        text: {
+          text: message,
+          languageCode,
+        },
+      },
+    };
+
+    sessionClient
+      .detectIntent(request)
+      .then(responses => {
+        const result = responses[0].queryResult.fulfillmentText;
+        io.emit("chat_message_response", `${result}`);
+      })
+      .catch(err => {
+        console.error("ERROR:", err);
+      });
+  });
 });
 
-// Run the server!
-fastify.listen(port, (err, address) => {
-  if (err) throw err;
-
-  console.log("Server is running".cyan);
-  console.log(`server listening on ${address}`.yellow);
-});
+server.listen(port, () => console.log(`Listening on port ${port}`));

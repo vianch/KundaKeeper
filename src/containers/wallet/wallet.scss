@@ -1,0 +1,17 @@
+@import "../../styles/layout/adaptive";
+@import "../../styles/shared/theme";
+@import "../../styles/shared/mixins";
+
+.walletContainer{
+  background: $primary-color-grey;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+
+  .walletListContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0 15px;
+  }
+}
+

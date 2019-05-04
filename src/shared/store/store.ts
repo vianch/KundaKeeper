@@ -11,11 +11,17 @@ import thunkMiddleware from "redux-thunk";
 
 import { chatMessagesReducer } from "../../containers/chat/reducers/chat-messages.reducer";
 import { chatUsersReducer } from "../../containers/chat/reducers/chat-users.reducer";
+import {
+  currencyListReducer,
+  currencyReducer,
+} from "../../containers/wallet/reducers/wallet.reducer";
 import { globalConfig } from "../config/global.config";
 
 const rootReducers = combineReducers({
   chatMessagesReducer,
   chatUsersReducer,
+  currencyListReducer,
+  currencyReducer,
 });
 
 function configureStore(): Store {

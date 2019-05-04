@@ -1,3 +1,4 @@
+@import "../layout/adaptive";
 @import "../shared/mixins";
 @import "../shared/theme";
 
@@ -8,4 +9,45 @@
   align-items: center;
   padding: 0 15px;
   border-bottom: 1px solid $color-grey-dark;
+}
+
+.card {
+  @include box-shadow(0px 2px 6px 2px rgba(46,50,66,0.92));
+  width: calc(100% - 30px);
+  height: 125px;
+  margin: 10px 0 10px 0;
+
+  &.cardGreen {
+    background: linear-gradient(45deg,#92F1D5,#ABF6BD);
+    color: $primary-color-grey;
+  }
+
+  &.cardBlue {
+    background: linear-gradient(45deg,#239FE9,#44D5F3);
+    color: $color-white;
+  }
+
+  &.cardOrange {
+    background: linear-gradient(45deg,#FD5A49,#FDDC98);
+    color: $primary-color-grey;
+  }
+
+  &.cardPink {
+    background: linear-gradient(45deg,#FBCA88,#EF69AD);
+    color: $primary-color-grey;
+  }
+
+  &.cardDarkBlue {
+    background: linear-gradient(45deg,#30496B,#30B8D2);
+    color: $color-white;
+  }
+
+  &.cardRed {
+    background: linear-gradient(45deg,#F1467A,#FB949E);
+    color: $color-white
+  }
+
+  @include breakpoint(breakpoint-extra-small) {
+    width: 100%
+  }
 }

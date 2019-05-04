@@ -15,6 +15,11 @@ const WalletContainer = () => {
         className={`${responsiveStyles.container} ${styles.walletContainer}`}
       >
         <div
+          className={`${styles.menuContainer} ${responsiveStyles["column-3"]}`}
+        >
+          asd
+        </div>
+        <div
           className={`${responsiveStyles["column-9"]} ${
             styles.walletListContainer
           }`}

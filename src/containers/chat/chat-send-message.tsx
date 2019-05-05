@@ -112,7 +112,7 @@ const ChatSendMessagesComponent = (
 
   useEffect(
     () => {
-      socket.emit("greetings", "Bienvenido a Minka Pagos!");
+      socket.emit("greetings", "Bienvenido a KundaKeeper!");
       botMessage();
     },
     [] as ReadonlyArray<any>,

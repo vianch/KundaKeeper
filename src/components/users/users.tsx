@@ -57,14 +57,14 @@ const UsersComponent = (): ReactElement => {
             }`}
           >
             <img
-              src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?h=350&auto=compress&cs=tinysrgb"
+              src="https://firebasestorage.googleapis.com/v0/b/kundalini-agent.appspot.com/o/minkalogo.jpg?alt=media&token=907b1a91-b400-496f-b9cb-bd9ce58afe2d"
               alt="avatar"
               className={avatarStyles.userAvatar}
             />
           </figure>
 
           <div className={styles.userInformation}>
-            <div className={styles.userName}>Minka pay</div>
+            <div className={styles.userName}>Kunda pay</div>
             <div className={`${styles.userStatus} ${styles.online}`}>
               <i className={styles.dot}> </i> online
             </div>

@@ -2,27 +2,35 @@ import React, { ReactElement } from "react";
 import { Link } from "react-router-dom";
 
 import boxCardStyles from "../../styles/components/box-card.scss";
+import buttonStyles from "../../styles/components/buttons.scss";
 import responsiveStyles from "../../styles/layout/_responsive.scss";
 import styles from "./wallet.scss";
 
 const CurrencyListComponent = (): ReactElement => (
   <div
-    className={`${responsiveStyles["column-9"]} ${styles.walletListContainer}`}
+    className={`${responsiveStyles["column-12"]} ${styles.walletListContainer}`}
   >
-    <div className="title">
+    <div className={styles.walletTitle}>
       <h1> KundaWallet</h1>
     </div>
 
     <div className={`${styles.walletAdvice}`}>
-      <h2>Try our new transaction chat</h2>
+      <h2 className={styles.adviceHeader}>Try our new transaction chat</h2>
 
-      <p>
+      <p className={styles.adviceDescription}>
         Our new transaction system via written chat and voice chat allows you to
         work with the wallet more comfortably, now you can talk to our system to
         make your transactions
       </p>
 
-      <Link to="/chat">Enter chat</Link>
+      <Link
+        to="/chat"
+        className={`${buttonStyles.button} ${buttonStyles.btnActive} ${
+          styles.adviceButton
+        }`}
+      >
+        Enter chat
+      </Link>
     </div>
 
     <div className={styles.walletList}>

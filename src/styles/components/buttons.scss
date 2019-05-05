@@ -1,0 +1,19 @@
+@import "../shared/theme";
+
+.button {
+  padding: 0.7rem 1.4rem;
+  transition: all 0.225s ease-in-out;
+  cursor: pointer;
+
+  &.btnActive {
+    background-color: $primary-color-blue;
+    color: $color-white;
+    text-decoration: none;
+    text-align: center;
+
+    a {
+      color: $color-white;
+      text-decoration: none;
+    }
+  }
+}

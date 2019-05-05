@@ -32,6 +32,15 @@
 .settings {
   color: $color-gray;
   cursor: pointer;
+  position: relative;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.menuContainer {
+  position: relative;
 }
 
 .userListTitle {
@@ -90,4 +99,9 @@
     }
   }
 
+}
+
+.showMenu {
+  visibility: visible;
+  opacity: 1;
 }

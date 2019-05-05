@@ -102,13 +102,4 @@ const CurrencyListComponent = (): ReactElement => (
   </div>
 );
 
-/*
-useEffect(
-    () => {
-
-    },
-    [] as ReadonlyArray<any>,
-  );
-*/
-
 export { CurrencyListComponent };

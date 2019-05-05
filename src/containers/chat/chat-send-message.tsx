@@ -7,10 +7,12 @@ import React, {
 } from "react";
 import openSocket from "socket.io-client";
 
+import { globalConfig } from "../../shared/config/global.config";
 import avatarStyles from "../../styles/components/avatar.scss";
 import componentStyles from "../../styles/components/box-card.scss";
 import styles from "./chat.scss";
-const socket = openSocket("localhost:3033/", { forceNew: true });
+
+const socket = openSocket(globalConfig.HOST, { forceNew: true });
 let input: HTMLInputElement;
 
 const ChatSendMessagesComponent = (

@@ -106,28 +106,22 @@ const ChatSendMessagesComponent = (
   };
 
   const dispatchMessage = (message: string, user: string) => {
-    if (user === "Me" && message.includes("netflix")) {
+    if (user === "Me" && message.toLowerCase().includes("netflix")) {
       pagarServicio("netflix", "29.4");
     }
-    if (user === "Me" && message.includes("codensa")) {
+    if (user === "Me" && message.toLowerCase().includes("codensa")) {
       pagarServicio("codensa", "40");
     }
-    if (user === "Me" && message.includes("spotify")) {
+    if (user === "Me" && message.toLowerCase().includes("spotify")) {
       pagarServicio("spotify", "14.9");
     }
-    if (
-      user === "Me" &&
-      message.toLowerCase().includes("comprar 150 kundacoins")
-    ) {
+    if (user === "Me" && message.toLowerCase().includes("comprar")) {
       ChatService.buyCoin({
         amountString: "150",
         handle: "$victor",
       });
     }
-    if (
-      user === "Me" &&
-      message.toLowerCase().includes("transferir 47 kundacoins a nathalia")
-    ) {
+    if (user === "Me" && message.toLowerCase().includes("transferir")) {
       ChatService.makePayment({
         amountString: "47",
         sourceHandle: "$victor",

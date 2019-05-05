@@ -3,8 +3,8 @@ import axios from "axios";
 import { globalConfig } from "../config/global.config";
 
 class DataService {
-  public static getData(endPoint: string): Promise<any> {
-    return axios.get(`http://${globalConfig}${endPoint}`);
+  public static getData(endPoint: string, body: object = {}): Promise<any> {
+    return axios.get(`http://${globalConfig}${endPoint}`, body);
   }
 
   public static postData(endPoint: string, body: object = {}): Promise<any> {

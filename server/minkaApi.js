@@ -5,8 +5,8 @@ const axios = require("axios");
 const uuidv1 = require("uuid/v1");
 
 const API_URL = "https://api-tst.minka.io/v1";
-const DOMAIN = "kunda2";
-const COIN_HANDLE = "$kundacoin33";
+const DOMAIN = "kunda";
+const COIN_HANDLE = "$kundacoin";
 
 async function requestToken() {
   let res = await axios({
@@ -40,11 +40,17 @@ async function setup() {
 
 // Services
 async function createWallet() {
+  const handle = `$kunda${uuidv1().substring(0, 5)}`;
+  return await createWalletByHandle(handle, "PERSON", {});
+}
+
+async function createWalletByHandle(
+  handle,
+  type = "TROPE",
+  additionalLabels = {},
+) {
   // Create signer
   const signer = await createSigner();
-
-  // Create Wallet
-  const handle = `$kunda${uuidv1().substring(0, 5)}`;
 
   let res = await axios({
     method: "POST",
@@ -53,7 +59,8 @@ async function createWallet() {
       handle: handle,
       labels: {
         domain: DOMAIN,
-        type: "TROPE",
+        type: type,
+        ...additionalLabels,
       },
     },
   });
@@ -205,6 +212,7 @@ module.exports = {
   buyCoin,
   createKundacoin,
   createWallet,
+  createWalletByHandle,
   setup,
 };
 

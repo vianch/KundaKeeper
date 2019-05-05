@@ -4,6 +4,7 @@
 
 require("colors");
 const express = require("express");
+const bodyParser = require("body-parser");
 const http = require("http");
 const socketIO = require("socket.io");
 const dialogflow = require("dialogflow");
@@ -15,8 +16,11 @@ const port = 3033;
 const server = http.createServer(app);
 const io = socketIO(server);
 
+// Middleware setup
 app.use(express.static("dist"));
+app.use(bodyParser.json());
 
+// Socket IO setup for the chat
 io.sockets.on("connection", socket => {
   const languageCode = "es";
   const sessionClient = new dialogflow.SessionsClient();
@@ -51,4 +55,49 @@ io.sockets.on("connection", socket => {
   });
 });
 
-server.listen(port, () => console.log(`Listening on port ${port}`));
+// Minka API endpoints
+const minkaApi = require("./minkaApi");
+
+app.post("/buy", (req, res) => {
+  const handle = req.body.handle;
+  const amountString = req.body.amountString;
+
+  minkaApi.buyCoin(handle, amountString).then(transactionData => {
+    res.send(transactionData);
+    console.log("User received coins!");
+  });
+});
+
+app.post("/pay", (req, res) => {
+  const sourceHandle = req.body.sourceHandle;
+  const targetHandle = req.body.targetHandle;
+  const amountString = req.body.amountString;
+
+  minkaApi
+    .makePayment(sourceHandle, targetHandle, amountString)
+    .then(transactionData => {
+      res.send(transactionData);
+    });
+});
+
+app.get("/balance", (req, res) => {
+  const handle = req.body.handle;
+  console.log(handle);
+  minkaApi.getBalance(handle).then(balanceData => {
+    res.send(balanceData);
+  });
+});
+
+// TODO
+app.post("/newAccount", (req, res) => {});
+
+// TODO
+app.post("/login", (req, res) => {});
+
+// start the server
+async function run() {
+  await minkaApi.setup();
+  server.listen(port, () => console.log(`Listening on port ${port}`));
+}
+
+run();

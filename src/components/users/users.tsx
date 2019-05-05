@@ -50,6 +50,11 @@ const UsersComponent = (): ReactElement => {
                 </a>
               </li>
               <li className={menuStyles.menuItem}>
+                <a href="/dashboard" target="_blank">
+                  Dashboard
+                </a>
+              </li>
+              <li className={menuStyles.menuItem}>
                 <Link to="/">Salir</Link>
               </li>
             </ul>

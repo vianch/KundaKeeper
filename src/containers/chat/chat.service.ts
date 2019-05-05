@@ -13,3 +13,5 @@ class ChatService {
     return DataService.postData("/pay", postData);
   }
 }
+
+export { ChatService };

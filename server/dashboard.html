@@ -8,26 +8,39 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
     <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
     />
+    <style>
+      * {
+        font-family: "Roboto", sans-serif;
+        box-sizing: border-box;
+        border: 0px;
+        color: #dadada;
+      }
+      body {
+      }
+      .header {
+        background: #ededed;
+        border: #dadada;
+        padding: 12px;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
-      <h1>KundaBase</h1>
+      <div class="header">KundaBase</div>
       <table>
         <thead>
-          <th>Id</th>
           <th>From</th>
           <th>To</th>
           <th>Amount</th>
         </thead>
         <tbody>
           <tr v-for="transaction in transactions">
-            <th>{{ transaction.transferId }}</th>
-            <th>{{ transaction.source }}</th>
-            <th>{{ transaction.target }}</th>
-            <th>{{ transaction.amount }}</th>
+            <td>{{ transaction.source }}</td>
+            <td>{{ transaction.target }}</td>
+            <td>{{ transaction.amount }}</td>
           </tr>
         </tbody>
       </table>

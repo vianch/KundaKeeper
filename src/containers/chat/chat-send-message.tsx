@@ -11,6 +11,7 @@ import { globalConfig } from "../../shared/config/global.config";
 import avatarStyles from "../../styles/components/avatar.scss";
 import componentStyles from "../../styles/components/box-card.scss";
 import styles from "./chat.scss";
+import { ChatService } from "./chat.service";
 
 const socket = openSocket(globalConfig.HOST, { forceNew: true });
 let input: HTMLInputElement;
@@ -95,7 +96,45 @@ const ChatSendMessagesComponent = (
       },
     );
   };
+
+  const pagarServicio = (service: string, amountString: string) => {
+    ChatService.makePayment({
+      amountString,
+      sourceHandle: "$victor",
+      targetHandle: `$${service}`,
+    });
+  };
+
   const dispatchMessage = (message: string, user: string) => {
+    if (user === "Me" && message.includes("netflix")) {
+      pagarServicio("netflix", "29.4");
+    }
+    if (user === "Me" && message.includes("codensa")) {
+      pagarServicio("codensa", "40");
+    }
+    if (user === "Me" && message.includes("spotify")) {
+      pagarServicio("spotify", "14.9");
+    }
+    if (
+      user === "Me" &&
+      message.toLowerCase().includes("comprar 150 kundacoins")
+    ) {
+      ChatService.buyCoin({
+        amountString: "150",
+        handle: "$victor",
+      });
+    }
+    if (
+      user === "Me" &&
+      message.toLowerCase().includes("transferir 47 kundacoins a nathalia")
+    ) {
+      ChatService.makePayment({
+        amountString: "47",
+        sourceHandle: "$victor",
+        targetHandle: "$nathalia",
+      });
+    }
+
     props.dispatch(
       new Date(),
       message,

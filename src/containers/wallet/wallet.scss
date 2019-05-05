@@ -35,10 +35,12 @@
   }
 
   .walletList {
+    overflow-y: auto;
+    height: 100%;
   }
 
   .walletItem {
-
+    height: auto;
   }
 
   .currencyLogoContainer {

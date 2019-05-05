@@ -6,7 +6,7 @@ import styles from "./wallet.scss";
 
 const WalletMenuComponent = (): ReactElement => (
   <div className={`${styles.menuContainer} ${responsiveStyles["column-3"]}`}>
-    <Link to="/Chat">Chat</Link>
+    <Link to="/chat">Chat</Link>
   </div>
 );
 

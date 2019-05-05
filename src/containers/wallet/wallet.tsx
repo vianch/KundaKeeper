@@ -1,6 +1,5 @@
-import React, { ComponentType, ReactElement, useState } from "react";
+import React, { ComponentType } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
 import { Wrapper } from "../../hoc/wrapper";
 import responsiveStyles from "../../styles/layout/_responsive.scss";

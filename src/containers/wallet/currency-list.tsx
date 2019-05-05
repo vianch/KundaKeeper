@@ -22,7 +22,7 @@ const CurrencyListComponent = (): ReactElement => (
         make your transactions
       </p>
 
-      <Link to="/Chat">Enter chat</Link>
+      <Link to="/chat">Enter chat</Link>
     </div>
 
     <div className={styles.walletList}>
@@ -72,35 +72,22 @@ const CurrencyListComponent = (): ReactElement => (
         </div>
       </div>
 
-      <div
-        className={`${boxCardStyles.card} ${boxCardStyles.cardBlue} ${
-          styles.walletItem
-        }`}
-      >
-        <div className={styles.currencyLogoContainer}>
-          <img
-            className={styles.currencyImage}
-            src="https://firebasestorage.googleapis.com/v0/b/vianch-web.appspot.com/o/litecoin.png?alt=media&token=85cad547-0cbb-4a70-94ff-be11c77febc0"
-          />
-        </div>
-
-        <div className={styles.currencyInformation}>
-          <h1>LiteCoin</h1>
-          <p>$210.0 per LIT</p>
-        </div>
-
-        <div className={styles.currencyAmount}>
-          <span>$0</span>
-          <span>0 LIT</span>
-        </div>
-      </div>
-
       <div className={`${boxCardStyles.card} ${boxCardStyles.cardPink}`}>
         <div className={styles.currencyLogoContainer}>
           <img
             className={styles.currencyImage}
             src="https://firebasestorage.googleapis.com/v0/b/vianch-web.appspot.com/o/kudalini.png?alt=media&token=ced53ed1-891b-454f-9cd3-a36b6209eb35"
           />
+        </div>
+
+        <div className={styles.currencyInformation}>
+          <h1>Kundacoin</h1>
+          <p>$210.0 per KDC</p>
+        </div>
+
+        <div className={styles.currencyAmount}>
+          <span>$0</span>
+          <span>0 KDC</span>
         </div>
       </div>
     </div>

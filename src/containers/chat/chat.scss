@@ -144,8 +144,14 @@
   margin: 0 10px;
 }
 
-.sendButtonActive,
-.sendButtonDisabled{
+.isRecordingColor {
+  color: $color-red;
+}
+
+.sendButtonDisabled {
   cursor: pointer;
+}
+
+.sendButtonActive {
   color: $primary-color-grey
 }

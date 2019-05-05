@@ -14,10 +14,16 @@ import styles from "./chat.scss";
 
 const socket = openSocket(globalConfig.HOST, { forceNew: true });
 let input: HTMLInputElement;
+let isRecording = false;
+let noteContent = "";
 
 const ChatSendMessagesComponent = (
   props: ChatSendMessagesProps,
 ): ReactElement => {
+  const {
+    webkitSpeechRecognition,
+  }: WindowInterface = window as WindowInterface;
+  const recognition = new webkitSpeechRecognition();
   const onChangeEvent = (event: ChangeEvent<HTMLInputElement>): void => {
     props.setFormClasses({
       disableSendButton:
@@ -41,15 +47,7 @@ const ChatSendMessagesComponent = (
   };
   const sendChatMessage = () => {
     if (input.value.length > 0) {
-      props.dispatch(
-        new Date(),
-        input.value,
-        "Me",
-        Math.random()
-          .toString(36)
-          .substring(7),
-      );
-      socket.emit("chat_message", input.value);
+      dispatchMessage(input.value, "Me");
       input.value = "";
       input.focus();
       props.setFormClasses({
@@ -59,54 +57,57 @@ const ChatSendMessagesComponent = (
     }
   };
   const sendMicMessage = () => {
-    let noteContent = "";
-    const {
-      webkitSpeechRecognition,
-    }: WindowInterface = window as WindowInterface;
-    const recognition = new webkitSpeechRecognition();
-
-    recognition.lang = "es-CO";
-    recognition.continuous = true;
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
-    recognition.start();
+    isRecording = !isRecording;
+    if (!isRecording) {
+      recognition.start();
+    } else {
+      recognition.stop();
+    }
 
     recognition.onstart = () => {
       recognition.recognizing = true;
     };
 
-    recognition.onresult = (event: { results: any[][] }) => {
-      const last = event.results.length - 1;
-      const transcript = event.results[last][0].transcript;
-
-      if (transcript) {
-        noteContent += transcript;
-      }
+    recognition.onresult = (event: {
+      results: any[][];
+      resultIndex: number;
+    }) => {
+      const current = event.results.length - 1;
+      noteContent += event.results[current][0].transcript;
     };
 
-    setTimeout(() => {
-      input = document.getElementById("textInput") as HTMLInputElement;
-      input.value = noteContent;
-      recognition.stop();
-      sendChatMessage();
-    }, 3000);
+    recognition.onspeechend = () => {
+      setTimeout(() => {
+        if (noteContent.length > 0) {
+          dispatchMessage(noteContent, "Me");
+          noteContent = "";
+        }
+      }, 800);
+    };
   };
   const botMessage = () => {
     socket.on(
       "chat_message_response",
       (message: string): void => {
         setTimeout(() => {
-          props.dispatch(
-            new Date(),
-            message,
-            "BOT",
-            Math.random()
-              .toString(36)
-              .substring(7),
-          );
+          dispatchMessage(message, "BOT");
         }, 1200);
       },
     );
+  };
+  const dispatchMessage = (message: string, user: string) => {
+    props.dispatch(
+      new Date(),
+      message,
+      user,
+      Math.random()
+        .toString(36)
+        .substring(7),
+    );
+
+    if (user === "Me") {
+      socket.emit("chat_message", message);
+    }
   };
 
   useEffect(
@@ -116,6 +117,11 @@ const ChatSendMessagesComponent = (
     },
     [] as ReadonlyArray<any>,
   );
+
+  recognition.lang = "es-CO";
+  recognition.continuous = true;
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
 
   return (
     <footer className={`${styles.footerBoxCard} ${componentStyles.boxCard}`}>

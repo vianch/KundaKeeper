@@ -46,7 +46,7 @@ async function createWallet() {
 
 async function createWalletByHandle(
   handle,
-  type = "TROPE",
+  type = "TROUPE",
   additionalLabels = {},
 ) {
   // Create signer
@@ -206,14 +206,21 @@ async function createKundacoin() {
   return res.data;
 }
 
+async function getTransactions() {
+  let res = await axios.get(`${API_URL}/action?labels.domain=${DOMAIN}`);
+  return res.data.entities;
+}
+
 module.exports = {
   getBalance,
   makePayment,
   buyCoin,
   createKundacoin,
   createWallet,
+  getWallets,
   createWalletByHandle,
   setup,
+  getTransactions,
 };
 
 /*

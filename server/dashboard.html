@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>KundaBase</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <h1>KundaBase</h1>
+      <table>
+        <thead>
+          <th>Id</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Amount</th>
+        </thead>
+        <tbody>
+          <tr v-for="transaction in transactions">
+            <th>{{ transaction.transferId }}</th>
+            <th>{{ transaction.source }}</th>
+            <th>{{ transaction.target }}</th>
+            <th>{{ transaction.amount }}</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          transactions: [],
+          socket: io(),
+        },
+        created: function() {
+          const that = this;
+          this.socket.on("transactions", data => {
+            console.log(data);
+            that.transactions = data;
+          });
+        },
+      });
+    </script>
+  </body>
+</html>

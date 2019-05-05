@@ -11,7 +11,7 @@ const CurrencyListComponent = (): ReactElement => (
     className={`${responsiveStyles["column-12"]} ${styles.walletListContainer}`}
   >
     <div className={styles.walletTitle}>
-      <h1> KundaWallet</h1>
+      <h1> KundaKeeper</h1>
     </div>
 
     <div className={`${styles.walletAdvice}`}>

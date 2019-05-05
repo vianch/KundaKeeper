@@ -86,7 +86,7 @@ const UsersComponent = (): ReactElement => {
             }`}
           >
             <img
-              src="https://foundico.com/upload/iblock/ad5/ad5c10ac5cad12681cc193e88ebd6778.png"
+              src="https://firebasestorage.googleapis.com/v0/b/vianch-web.appspot.com/o/Screen%20Shot%202019-05-05%20at%202.09.40%20PM.png?alt=media&token=3837780e-6645-42ab-88e8-55329bf908ae"
               className={avatarStyles.userAvatar}
             />
           </figure>

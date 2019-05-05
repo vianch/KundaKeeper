@@ -50,8 +50,4 @@
     background: linear-gradient(45deg,#F1467A,#FB949E);
     color: $color-white
   }
-
-  @include breakpoint(breakpoint-extra-small) {
-    width: 100%
-  }
 }

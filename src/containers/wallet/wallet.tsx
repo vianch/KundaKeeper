@@ -1,12 +1,10 @@
-import React, { ComponentType, ReactElement, useState } from "react";
+import React, { ComponentType } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
 import { Wrapper } from "../../hoc/wrapper";
 import responsiveStyles from "../../styles/layout/_responsive.scss";
 import { WalletActions } from "./actions/wallet.actions";
 import { CurrencyListComponent } from "./currency-list";
-import { WalletMenuComponent } from "./wallet-menu";
 import styles from "./wallet.scss";
 
 const WalletContainer = () => {
@@ -15,7 +13,6 @@ const WalletContainer = () => {
       <div
         className={`${responsiveStyles.container} ${styles.walletContainer}`}
       >
-        <WalletMenuComponent />
         <CurrencyListComponent />
       </div>
     </Wrapper>

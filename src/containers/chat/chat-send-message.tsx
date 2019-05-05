@@ -151,7 +151,7 @@ const ChatSendMessagesComponent = (
 
   useEffect(
     () => {
-      socket.emit("greetings", "Bienvenido a Minka Pagos!");
+      socket.emit("greetings", "Bienvenido a KundaKeeper!");
       botMessage();
     },
     [] as ReadonlyArray<any>,
@@ -170,7 +170,7 @@ const ChatSendMessagesComponent = (
         }`}
       >
         <img
-          src="https://images.pexels.com/photos/247885/pexels-photo-247885.jpeg?h=350&auto=compress&cs=tinysrgb"
+          src="https://media.licdn.com/dms/image/C5103AQFgahLA9_pHdg/profile-displayphoto-shrink_800_800/0?e=1562803200&v=beta&t=xtzf1-Pehj5t4AxnN4aXmm1hPShCcFGKqQzHmBhc_U0"
           alt="avatar"
           className={avatarStyles.userAvatar}
         />

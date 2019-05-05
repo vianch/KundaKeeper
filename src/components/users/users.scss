@@ -1,0 +1,107 @@
+@import "../../styles/layout/adaptive";
+@import "../../styles/shared/theme";
+@import "../../styles/shared/mixins";
+
+.usersComponent {
+  height: 100vh;
+  background: $primary-color-grey;
+  overflow-y: auto;
+
+  @include breakpoint(breakpoint-extra-small) {
+    max-height: 229px;
+
+    &::-webkit-scrollbar-track
+    {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background-color: $primary-color-light;
+    }
+
+    &::-webkit-scrollbar
+    {
+      width: 6px;
+      background-color: $primary-color-light;
+    }
+
+    &::-webkit-scrollbar-thumb
+    {
+      background-color: $color-gray;
+    }
+  }
+}
+
+.settings {
+  color: $color-gray;
+  cursor: pointer;
+  position: relative;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.menuContainer {
+  position: relative;
+}
+
+.userListTitle {
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.userList {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.user {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+
+  &.userActive {
+    background: $primary-color-mid;
+    .userName { color: $primary-color-grey; }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.userInformation {
+  display: flex;
+  flex-flow: column nowrap;
+  @include font-size(14px);
+
+  .userName {
+    color: $color-white;
+    margin-bottom: 5px;
+  }
+
+  .userStatus {
+    font-weight: bold;
+
+    &.online {
+      color: $color-green;
+      .dot {  background: $color-green; }
+    }
+
+    &.offline {
+      color: $color-gray;
+      .dot {  background: $color-red; }
+    }
+
+    .dot {
+      @include circle(8px);
+      display: inline-block;
+    }
+  }
+
+}
+
+.showMenu {
+  visibility: visible;
+  opacity: 1;
+}

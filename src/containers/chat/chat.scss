@@ -1,0 +1,158 @@
+@import "../../styles/layout/adaptive";
+@import "../../styles/shared/theme";
+@import "../../styles/shared/mixins";
+
+.chatContainer {
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+
+  @include breakpoint(breakpoint-extra-small) {
+    height: auto;
+  }
+}
+
+.ChatBoxCard {
+  border-left: 1px solid $color-grey-dark;
+  justify-content: flex-start;
+}
+
+.footerBoxCard {
+  border-left: 1px solid $color-grey-dark;
+  justify-content: space-between;
+}
+
+.avatarFooter {
+  display: inherit;
+
+  @include breakpoint(breakpoint-extra-tiny) {
+    display: none;
+  }
+}
+
+.userName {
+  color: $primary-color-grey;
+  @include font-size(14px);
+}
+
+.messagesContainer {
+  display: flex;
+  height: calc(100vh - 100px);
+  background: $color-white;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+
+  @include breakpoint(breakpoint-extra-small) {
+    height: calc(100vh - 349px);
+  }
+}
+
+.messagesList {
+  background: $primary-color-light;
+  border-left: 1px solid $color-grey-dark;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column-reverse nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 20px;
+}
+
+.message {
+  @include font-size(14px);
+  clear: both;
+  padding: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  color: $color-white;
+  position: relative;
+  line-height: 1.4;
+  max-width: 70%;
+}
+
+.userMessage {
+  align-self: flex-end;
+  border-radius: 20px 20px 0 20px;
+  text-align: right;
+  background: $color-blue;
+  margin: 0 35px 10px 0;
+  text-overflow: ellipsis;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.responseMessage {
+  align-self: flex-start;
+  border-radius: 20px 20px 20px 0;
+  text-align: left;
+  background: $color-green;
+  margin: 0 0 25px 40px;
+  position: relative;
+}
+
+.avatarPosition {
+  position: absolute;
+  left: -45px;
+  top: 35px;
+}
+
+.timeStamp {
+  @include font-size(11px);
+  color: $primary-color-light;
+  margin-top: 3px;
+}
+
+.inputArea {
+  background-color: $color-white;
+  border-color: #fff;
+  border-radius: 21px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 9px 12px 11px 12px;
+  margin: 5px 10px;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-height: 15px;
+  max-height: 100px;
+  cursor: text;
+  position: relative;
+}
+
+.copyableText {
+  @include font-size(15px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 15px;
+  max-height: 100px;
+  position: relative;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+  z-index: 1;
+  font-weight: normal;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: $primary-color-grey
+}
+
+.sendButton {
+  margin: 0 10px;
+}
+
+.isRecordingColor {
+  color: $color-red;
+}
+
+.sendButtonDisabled {
+  cursor: pointer;
+}
+
+.sendButtonActive {
+  color: $primary-color-grey;
+  cursor: pointer;
+}

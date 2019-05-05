@@ -1,0 +1,8 @@
+const walletActionTypes = {
+  BUY_CURRENCY: "BUY_CURRENCY",
+  LOAD_CURRENCIES: "LOAD_CURRENCIES",
+  PAY_WITH_CURRENCY: "PAY_WITH_CURRENCY",
+  SEND_CURRENCY: "SEND_CURRENCY",
+};
+
+export { walletActionTypes };

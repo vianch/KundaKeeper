@@ -1,0 +1,55 @@
+@value breakpoint-extra-tiny: (max-width: 330px);
+@value breakpoint-tiny: (max-width: 420px);
+@value breakpoint-extra-small: (max-width: 639px);
+@value breakpoint-small: (min-width: 640px) and (max-width: 991px);
+@value breakpoint-small-and-down: (max-width: 991px);
+@value breakpoint-small-and-up: (min-width: 640px);
+@value breakpoint-medium: (min-width: 992px) and (max-width: 1199px);
+@value breakpoint-medium-and-down: (max-width: 1199px);
+@value breakpoint-medium-and-up: (min-width: 992px);
+@value breakpoint-large: (min-width: 1200px) and (max-width: 1899px);
+@value breakpoint-large-and-down: (max-width: 1899px);
+@value breakpoint-large-and-up: (min-width: 1200px);
+@value breakpoint-extra-large: (min-width: 1900px);
+
+@mixin breakpoint($media) {
+  @if $media == breakpoint-extra-tiny {
+    @media only screen and (max-width: 330px) { @content; }
+  }
+  @else if $media == breakpoint-tiny {
+    @media only screen and (max-width: 420px) { @content; }
+  }
+  @else if $media == breakpoint-extra-small {
+    @media only screen and (max-width: 639px) { @content; }
+  }
+  @else if $media == breakpoint-small {
+    @media only screen and (min-width: 640px) and (max-width: 991px) { @content; }
+  }
+  @else if $media == breakpoint-small-and-down {
+    @media only screen and (max-width: 991px) { @content; }
+  }
+  @else if $media == breakpoint-small-and-up {
+    @media only screen and (min-width: 640px) { @content; }
+  }
+  @else if $media == breakpoint-medium {
+    @media only screen and (min-width: 992px) and (max-width: 1199px) { @content; }
+  }
+  @else if $media == breakpoint-medium-and-down {
+    @media only screen and (max-width: 1199px) { @content; }
+  }
+  @else if $media == breakpoint-medium-and-up {
+    @media only screen and (min-width: 992px) { @content; }
+  }
+  @else if $media == breakpoint-large {
+    @media only screen and (min-width: 1200px) and (max-width: 1899px) { @content; }
+  }
+  @else if $media == breakpoint-large-and-down {
+    @media only screen and (max-width: 1899px) { @content; }
+  }
+  @else if $media == breakpoint-large-and-up {
+    @media only screen and (min-width: 1200px) { @content; }
+  }
+  @else if $media == breakpoint-extra-large {
+    @media only screen and (min-width: 1900px) { @content; }
+  }
+}

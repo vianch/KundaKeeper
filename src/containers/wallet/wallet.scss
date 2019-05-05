@@ -1,0 +1,99 @@
+@import "../../styles/layout/adaptive";
+@import "../../styles/shared/theme";
+@import "../../styles/shared/mixins";
+
+.walletTitle {
+  @include font-size(30px);
+  color: $primary-color-grey;
+}
+
+.walletContainer{
+  width: 100%;
+
+  position: absolute;
+
+  .walletListContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    background: $primary-color-mid;
+    height: 100vh;
+    padding: 15px;
+  }
+
+  .walletAdvice {
+    $margin-bottom: 20px;
+    color: $primary-color-grey;
+    padding: 15px 25px;
+    background: $color-white;
+    margin: 15px 0;
+    min-height: 175px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+
+    h2.adviceHeader {
+      @include font-size(28px);
+      margin-bottom: $margin-bottom;
+    }
+
+    p.adviceDescription {
+      @include font-size(16px);
+      margin-bottom: 40px;
+    };
+
+    .adviceButton {
+      float: right;
+    }
+  }
+
+  .walletList {
+    overflow-y: auto;
+    height: 100%;
+  }
+
+  .walletItem {
+    height: auto;
+  }
+
+  .currencyLogoContainer {
+    width: 75px;
+    height: 75px;
+    display: block;
+
+    .currencyImage {
+      width: 75px;
+    }
+  }
+
+  .currencyInformation,
+  .currencyAmount {
+    display: flex;
+    flex-flow: column nowrap;
+
+    h1, p, span {
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      @include font-size(30px)
+    }
+
+    p{
+      @include font-size(24px);
+    }
+
+    span{
+      @include font-size(28px);
+    }
+  }
+
+  .currencyAmount {
+    margin-right: 20px;
+    text-align: right;
+  }
+}
+
+.menuContainer {
+  background: $primary-color-grey;
+  height: 100vh;
+}

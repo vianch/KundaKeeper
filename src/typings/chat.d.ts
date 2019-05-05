@@ -25,8 +25,17 @@ interface ChatSendMessagesProps {
   dispatch?: (date: Date, message: string, user: string, id: string) => void;
   setFormClasses?: ({
     disableSendButton,
+    sentButtonType,
   }: {
     disableSendButton: string;
+    sentButtonType: string;
   }) => void;
-  formClasses?: { disableSendButton: string };
+  formClasses?: {
+    disableSendButton: string;
+    sentButtonType: string;
+  };
+}
+
+interface WindowInterface extends Window {
+  webkitSpeechRecognition: any;
 }

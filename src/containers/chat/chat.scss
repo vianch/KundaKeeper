@@ -144,12 +144,8 @@
   margin: 0 10px;
 }
 
-.sendButtonDisabled {
-  color: $color-gray;
-  cursor: default;
-}
-
-.sendButtonActive {
+.sendButtonActive,
+.sendButtonDisabled{
   cursor: pointer;
   color: $primary-color-grey
 }

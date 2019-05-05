@@ -10,7 +10,8 @@ import openSocket from "socket.io-client";
 import avatarStyles from "../../styles/components/avatar.scss";
 import componentStyles from "../../styles/components/box-card.scss";
 import styles from "./chat.scss";
-const socket = openSocket("localhost:3033/");
+const socket = openSocket("localhost:3033/", { forceNew: true });
+let input: HTMLInputElement;
 
 const ChatSendMessagesComponent = (
   props: ChatSendMessagesProps,
@@ -21,6 +22,7 @@ const ChatSendMessagesComponent = (
         event.target.value.length === 0
           ? styles.sendButtonDisabled
           : styles.sendButtonActive,
+      sentButtonType: event.target.value.length === 0 ? "mic" : "send",
     });
   };
   const onKeyPressEvent = (event: KeyboardEvent<HTMLInputElement>): void => {
@@ -29,6 +31,13 @@ const ChatSendMessagesComponent = (
     }
   };
   const sendMessage = () => {
+    if (props.formClasses.sentButtonType === "mic") {
+      sendMicMessage();
+    } else {
+      sendChatMessage();
+    }
+  };
+  const sendChatMessage = () => {
     if (input.value.length > 0) {
       props.dispatch(
         new Date(),
@@ -43,8 +52,42 @@ const ChatSendMessagesComponent = (
       input.focus();
       props.setFormClasses({
         disableSendButton: styles.sendButtonDisabled,
+        sentButtonType: "mic",
       });
     }
+  };
+  const sendMicMessage = () => {
+    let noteContent = "";
+    const {
+      webkitSpeechRecognition,
+    }: WindowInterface = window as WindowInterface;
+    const recognition = new webkitSpeechRecognition();
+
+    recognition.lang = "es-CO";
+    recognition.continuous = true;
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+    recognition.start();
+
+    recognition.onstart = () => {
+      recognition.recognizing = true;
+    };
+
+    recognition.onresult = (event: { results: any[][] }) => {
+      const last = event.results.length - 1;
+      const transcript = event.results[last][0].transcript;
+
+      if (transcript) {
+        noteContent += transcript;
+      }
+    };
+
+    setTimeout(() => {
+      input = document.getElementById("textInput") as HTMLInputElement;
+      input.value = noteContent;
+      recognition.stop();
+      sendChatMessage();
+    }, 3000);
   };
   const botMessage = () => {
     socket.on(
@@ -64,10 +107,9 @@ const ChatSendMessagesComponent = (
     );
   };
 
-  let input: HTMLInputElement;
-
   useEffect(
     () => {
+      socket.emit("greetings", "Bienvenido a Minka Pagos!");
       botMessage();
     },
     [] as ReadonlyArray<any>,
@@ -89,6 +131,7 @@ const ChatSendMessagesComponent = (
 
       <div className={styles.inputArea}>
         <input
+          id="textInput"
           className={styles.copyableText}
           spellCheck={true}
           onChange={onChangeEvent}
@@ -106,7 +149,7 @@ const ChatSendMessagesComponent = (
           onClick={sendMessage}
           className={`material-icons ${props.formClasses.disableSendButton}`}
         >
-          send
+          {props.formClasses.sentButtonType}
         </i>
       </div>
     </footer>

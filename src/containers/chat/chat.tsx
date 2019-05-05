@@ -17,6 +17,7 @@ const ChatContainer = ({
 }: ChatProps): ReactElement => {
   const [formClasses, setFormClasses] = useState({
     disableSendButton: styles.sendButtonDisabled,
+    sentButtonType: "mic",
   });
 
   return (

@@ -21,6 +21,10 @@ io.sockets.on("connection", socket => {
   const languageCode = "es";
   const sessionClient = new dialogflow.SessionsClient();
 
+  socket.on("greetings", message => {
+    socket.emit("chat_message_response", message);
+  });
+
   socket.on("chat_message", message => {
     const sessionId = uuid.v4();
     const sessionPath = sessionClient.sessionPath("kundalini-agent", sessionId);
@@ -39,7 +43,7 @@ io.sockets.on("connection", socket => {
       .detectIntent(request)
       .then(responses => {
         const result = responses[0].queryResult.fulfillmentText;
-        io.emit("chat_message_response", `${result}`);
+        socket.emit("chat_message_response", `${result}`);
       })
       .catch(err => {
         console.error("ERROR:", err);

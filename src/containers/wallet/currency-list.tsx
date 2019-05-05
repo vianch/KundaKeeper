@@ -94,8 +94,8 @@ const CurrencyListComponent = (): ReactElement => (
         </div>
 
         <div className={styles.currencyAmount}>
-          <span>$0</span>
-          <span>0 KDC</span>
+          <span>$100</span>
+          <span>300 KDC</span>
         </div>
       </div>
     </div>

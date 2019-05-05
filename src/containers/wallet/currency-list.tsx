@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import boxCardStyles from "../../styles/components/box-card.scss";
@@ -101,5 +101,14 @@ const CurrencyListComponent = (): ReactElement => (
     </div>
   </div>
 );
+
+/*
+useEffect(
+    () => {
+
+    },
+    [] as ReadonlyArray<any>,
+  );
+*/
 
 export { CurrencyListComponent };

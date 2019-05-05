@@ -5,6 +5,7 @@
 require("colors");
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require("path");
 const http = require("http");
 const socketIO = require("socket.io");
 const dialogflow = require("dialogflow");
@@ -24,6 +25,14 @@ app.use(bodyParser.json());
 io.sockets.on("connection", socket => {
   const languageCode = "es";
   const sessionClient = new dialogflow.SessionsClient();
+  console.log("A client connected!");
+  // Minka call for the dashboard
+  setInterval(() => {
+    minkaApi.getTransactions().then(transactions => {
+      console.log("Trasnactions emitted!");
+      socket.emit("transactions", transactions);
+    });
+  }, 15000);
 
   socket.on("greetings", message => {
     socket.emit("chat_message_response", message);
@@ -93,6 +102,15 @@ app.post("/newAccount", (req, res) => {});
 
 // TODO
 app.post("/login", (req, res) => {});
+
+app.get("/dashboard", (req, res) => {
+  res.sendFile(__dirname + "/dashboard.html");
+});
+
+// wildcard
+app.get("/*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../dist/index.html"));
+});
 
 // start the server
 async function run() {

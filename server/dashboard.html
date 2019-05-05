@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>KundaBase</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Roboto", sans-serif;
+        box-sizing: border-box;
+        border: 0px;
+        color: #dadada;
+      }
+      body {
+      }
+      .header {
+        background: #ededed;
+        border: #dadada;
+        padding: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="header">KundaBase</div>
+      <table>
+        <thead>
+          <th>From</th>
+          <th>To</th>
+          <th>Amount</th>
+        </thead>
+        <tbody>
+          <tr v-for="transaction in transactions">
+            <td>{{ transaction.source }}</td>
+            <td>{{ transaction.target }}</td>
+            <td>{{ transaction.amount }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          transactions: [],
+          socket: io(),
+        },
+        created: function() {
+          const that = this;
+          this.socket.on("transactions", data => {
+            console.log(data);
+            that.transactions = data;
+          });
+        },
+      });
+    </script>
+  </body>
+</html>

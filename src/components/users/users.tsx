@@ -23,7 +23,7 @@ const UsersComponent = (): ReactElement => {
           }`}
         >
           <img
-            src="https://images.pexels.com/photos/247885/pexels-photo-247885.jpeg?h=350&auto=compress&cs=tinysrgb"
+            src="https://media.licdn.com/dms/image/C5103AQFgahLA9_pHdg/profile-displayphoto-shrink_800_800/0?e=1562803200&v=beta&t=xtzf1-Pehj5t4AxnN4aXmm1hPShCcFGKqQzHmBhc_U0"
             alt="avatar"
             className={avatarStyles.userAvatar}
           />
@@ -40,6 +40,14 @@ const UsersComponent = (): ReactElement => {
             <ul className={menuStyles.menuItems}>
               <li className={menuStyles.menuItem}>
                 <Link to="/">Wallet</Link>
+              </li>
+              <li className={menuStyles.menuItem}>
+                <a
+                  href="https://www.facebook.com/indigo.dreamer47/"
+                  target="_blank"
+                >
+                  Pagar en Messenger
+                </a>
               </li>
               <li className={menuStyles.menuItem}>
                 <Link to="/">Salir</Link>
@@ -78,7 +86,7 @@ const UsersComponent = (): ReactElement => {
             }`}
           >
             <img
-              src="https://randomuser.me/api/portraits/men/32.jpg"
+              src="https://foundico.com/upload/iblock/ad5/ad5c10ac5cad12681cc193e88ebd6778.png"
               className={avatarStyles.userAvatar}
             />
           </figure>

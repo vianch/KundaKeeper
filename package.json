@@ -17,7 +17,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "dialogflow": "^0.8.2",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "lodash": "^4.17.11",
     "react": "^16.8.6",
     "react-cli": "^0.3.1",
